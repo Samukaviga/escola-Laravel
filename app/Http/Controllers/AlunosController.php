@@ -10,17 +10,17 @@ use App\Models\Alunos;
 class AlunosController extends Controller
 {
 
-    public function index(Turmas $turmas, Alunos $alunos, Request $request)
+    public function index(Alunos $alunos, Turmas $turmas, Request $request)
     {
-
         $aluno = $alunos::with('turmas')->get();
-        /*
-        $turmas::find($aluno->turmas_id); */
+        
+        //$turmas::find($aluno->turmas_id); 
 
         $mensagemSucesso = session('mensagem.sucesso');
         session()->forget('mensagem.sucesso');
         return view('aluno.index')->with('mensagemSucesso', $mensagemSucesso)
-                                    ->with('alunos', $aluno);
+                                    ->with('alunos', $aluno)
+                                    ->with('turmas', $turmas::all());
     }
 
     public function create(Turmas $turmas, Request $request)
@@ -39,11 +39,6 @@ class AlunosController extends Controller
         ]);
 
         return redirect('/alunos')->with('mensagem.sucesso', "$request->nome adicionado com sucesso!");
-    }
-
-    public function show($id)
-    {
-        //
     }
 
     public function edit(Alunos $alunos, Turmas $turmas, Request $request)
@@ -75,5 +70,10 @@ class AlunosController extends Controller
 
         return redirect('/alunos')->with('mensagem.sucesso', "Aluno '$aluno->nome' removido com sucesso!");
 
+    }
+
+    public function show($id)
+    {
+        //
     }
 }
