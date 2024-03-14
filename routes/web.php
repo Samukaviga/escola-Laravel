@@ -27,6 +27,8 @@ Route::post('/alunos', [AlunosController::class, 'store']);
 Route::put('/alunos/{id}', [AlunosController::class, 'update']);
 Route::delete('/alunos/{id}', [AlunosController::class, 'destroy']);
 
+Route::post('/alunos/pesquisa', [AlunosController::class, 'pesquisar']);
+
 
 
 Route::get('/turmas', [TurmasController::class, 'index']);
@@ -35,4 +37,6 @@ Route::get('/turmas/{id}/editar', [TurmasController::class, 'edit']);
 Route::post('/turmas', [TurmasController::class, 'store']);
 Route::put('/turmas/{id}', [TurmasController::class, 'update']);
 Route::delete('/turmas/{id}', [TurmasController::class, 'destroy']);
+
+Route::post('/turmas/pesquisa', [TurmasController::class, 'pesquisar']);
 

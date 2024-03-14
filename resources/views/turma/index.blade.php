@@ -25,47 +25,24 @@
 						</div>
 					</div>
 					<!-- /Page Header -->
-					
-					<div class="student-group-form mb-4" >
-						<div class="row">
-							<div class="col-lg-3 col-md-6">  
-								<div class="input-block local-forms">
-									<label >Professor</label>
-									<select name="professor" id="professor" class="form-control" >
-                            			<option value="" >Selecione o Professor</option>
-                                        <option value="BIANCA" >BIANCA</option>
-                                        <option value="CARLOS" >CARLOS</option>
-                           			 </select>
-								</div>
-							</div>
-							<div class="col-lg-3 col-md-6">  
-								<div class="input-block local-forms">
-									<label >Mês</label>
-									<select name="professor" id="professor" class="form-control" >
-                            			<option value="" >Selecione o mês</option>
-                                        <option value="BIANCA" >1 -Janeiro</option>
-                                        <option value="CARLOS" >2 - Fevereiro</option>
-                           			 </select>
-								</div>
-							</div>
-							<div class="col-lg-3 col-md-6">  
-								<div class="input-block local-forms">
-									<label >Ano</label>
-									<select name="professor" id="professor" class="form-control" >
-                            			<option value="" >Selecione o ano</option>
-                                        <option value="BIANCA" >2023</option>
-                                        <option value="CARLOS" >2024</option>
-                           			 </select>
-								</div>
-							</div>
-							<div class="col-lg-2">  
-								<div class="search-student-btn">
-									<button type="btn" class="btn btn-primary">Filtrar</button>
+					<form action="/turmas/pesquisa" method="post">
+						@csrf
+						<div class="student-group-form mb-4" >
+							<div class="row">
+								<div class="col-lg-3 col-md-6">  
+									<div class="input-block local-forms">
+										<label >Turma</label>
+										<input name="turma" id="turma" class="form-control" >                          		
+									</div>
+								</div>					
+								<div class="col-lg-2">  
+									<div class="search-student-btn">
+										<button type="btn" class="btn btn-primary">Filtrar</button>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				
+					</form>
 					<div class="row">
 						<div class="col-sm-12">
 						

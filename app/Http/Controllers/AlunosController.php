@@ -72,8 +72,17 @@ class AlunosController extends Controller
 
     }
 
-    public function show($id)
-    {
-        //
+    public function show(){
+
     }
+
+    public function pesquisar(Alunos $alunos, Request  $request, Turmas $turmas)
+    {
+        
+        $aluno = $alunos::with('turmas')->where('nome','LIKE', "%{$request->nome}%")->get();
+
+        return view('aluno.index')->with('alunos', $aluno)->with('turmas', $turmas::all());
+        
+    }
+
 }

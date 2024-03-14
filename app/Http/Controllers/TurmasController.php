@@ -37,13 +37,6 @@ class TurmasController extends Controller
 
     }
 
-
-    public function show($id)
-    {
-        //
-    }
-
-
     public function edit(Turmas $turmas, Request $request)
     {   
            $turma = $turmas::find($request->id);
@@ -72,5 +65,19 @@ class TurmasController extends Controller
         $turmas::destroy($request->id);
 
         return redirect('/turmas')->with('mensagem.sucesso', "Turma '$turma->nome' deletada com sucesso!");
+    }
+
+    public function pesquisar(Turmas $turmas, Request $request)
+    {
+      
+        $turma = $turmas::where('nome', 'LIKE', "%{$request->turma}%")->get();
+
+        return view('turma.index')->with('turmas', $turma);
+
+    }
+
+    public function show($id)
+    {
+        //
     }
 }

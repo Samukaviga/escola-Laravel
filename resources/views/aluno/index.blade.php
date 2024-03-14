@@ -26,19 +26,15 @@
 						</div>
 					</div>
 					<!-- /Page Header -->
-					<form action="">		
+					<form action="/alunos/pesquisa" method="post">		
+					@csrf
 					<div class="student-group-form mb-4" >
 				
 						<div class="row">
 							<div class="col-lg-3 col-md-6">  
 								<div class="input-block local-forms">
-									<label >Turmas</label>
-									<select name="professor" id="professor" class="form-control" >
-                            			<option value="" >Selecione a turma</option>
-                                       @foreach($turmas as $turma) 
-										<option value="{{ $turma->id }}" >{{ $turma->nome }}</option>
-                                       @endforeach
-                           			 
+									<label >Nome</label>
+										<input name="nome" id="nome" class="form-control" >
 									</select>
 								</div>
 							</div>
